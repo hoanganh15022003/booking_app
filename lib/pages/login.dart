@@ -134,11 +134,11 @@ class Login extends StatelessWidget {
           ),
 
           Positioned(
+            top: 400,
             right: 0,
             left: 0,
             bottom: 0,
             child: Container(
-              height: 430,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(24),
