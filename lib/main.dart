@@ -32,13 +32,13 @@ class _HomePageState extends State<HomePage> {
   String? selectedLanguage = 'VN';
   String gettext="";
   int n=0;
-  static const List<String> txtHello=['Xin chào,Hoàng Anh','Hello, Hoàng Anh'];
-  static const List<String> Location=['Địa điểm','Location'];
-  static const List<String> Time=['Tháng 8','August'];
-  static const List<String> Guests=['Khách','Guests'];
-  static const List<String> Search=['Tìm kiếm','Search'];
-  static const List<String> Details=['Chi tiết','Details'];
-  static const List<String> Goto=['Đi tới','Go to'];
+  static const List<String> txtHello=['Xin chào,Hoàng Anh','Hello, Hoanganh'];
+  static const List<String> location=['Địa điểm','Location'];
+  static const List<String> time=['Tháng 8','August'];
+  static const List<String> guests=['Khách','Guests'];
+  static const List<String> search=['Tìm kiếm','Search'];
+  static const List<String> details=['Chi tiết','Details'];
+  static const List<String> goTo=['Đi tới','Go to'];
 
   @override
   Widget build(BuildContext context) {
@@ -137,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                               Icons.search,
                               color: Colors.black,
                             ), 
-                            label: Text(Location[n], style:const TextStyle(color: Colors.black, fontSize: 16),),
+                            label: Text(location[n], style:const TextStyle(color: Colors.black, fontSize: 16),),
                             style: ButtonStyle(
                               overlayColor: MaterialStateProperty.all(Colors.transparent),
                             ),
@@ -170,7 +170,7 @@ class _HomePageState extends State<HomePage> {
                               Icons.calendar_today_outlined,
                               color: Colors.black,
                             ), 
-                            label: Text(Time[n], style:const TextStyle(color: Colors.black, fontSize: 16),),
+                            label: Text(time[n], style:const TextStyle(color: Colors.black, fontSize: 16),),
                             style: ButtonStyle(
                               overlayColor: MaterialStateProperty.all(Colors.transparent),
                             ),
@@ -194,7 +194,7 @@ class _HomePageState extends State<HomePage> {
                               Icons.group_add_outlined,
                               color: Colors.black,
                             ), 
-                            label:  Text(Guests[n], style:const TextStyle(color: Colors.black, fontSize: 16),),
+                            label:  Text(guests[n], style:const TextStyle(color: Colors.black, fontSize: 16),),
                             style: ButtonStyle(
                               overlayColor: MaterialStateProperty.all(Colors.transparent),
                             ),
@@ -255,7 +255,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                           ),
-                          child:  Text(Search[n], style:const TextStyle(fontSize: 16),)
+                          child:  Text(search[n], style:const TextStyle(fontSize: 16),)
                         )
                       ),
                     ),
@@ -287,7 +287,7 @@ class _HomePageState extends State<HomePage> {
                           Container(
                             margin: const EdgeInsets.fromLTRB(0, 12, 0, 8),
                             child: Text(
-                              Details[n], 
+                              details[n], 
                               style:const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
                           ),
 
@@ -318,7 +318,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                 ),
-                                child: Text(Goto[n], style:const TextStyle(fontSize: 16),)
+                                child: Text(goTo[n], style:const TextStyle(fontSize: 16),)
                               )
                             ),
                           ),
