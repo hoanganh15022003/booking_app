@@ -1,4 +1,3 @@
-import 'package:booking_app_demo/pages/login.dart';
 import 'package:flutter/material.dart';
 
 class Register extends StatelessWidget {
@@ -170,10 +169,7 @@ class Register extends StatelessWidget {
                         style: ButtonStyle(
                           overlayColor: MaterialStateProperty.all(Colors.transparent),
                         ),
-                        onPressed: () {
-
-                          Navigator.of(context).push(_login());
-                        }, 
+                        onPressed: () {}, 
                         child: const Text('Back to login', style: TextStyle(color: Colors.white, fontSize: 16),),
                       ),
                       
@@ -207,22 +203,4 @@ class Register extends StatelessWidget {
               ),
     );
   }
-}
-
-Route _login() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const Login(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      const begin = Offset(0.0, 1.0);
-      const end = Offset.zero;
-      const curve = Curves.ease;
-
-      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-      return SlideTransition(
-        position: animation.drive(tween),
-        child: child,
-      );
-    },
-  );
 }

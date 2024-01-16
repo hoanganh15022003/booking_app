@@ -14,7 +14,7 @@ import 'package:flutter/material.dart';
 void main() => runApp(
    const MaterialApp(
     title: "Travel Demo",
-    home: Login(),
+    home: HomePage(),
     debugShowCheckedModeBanner: false,
   ),
 );

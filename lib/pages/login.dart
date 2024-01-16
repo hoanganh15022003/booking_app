@@ -1,27 +1,9 @@
-import 'package:booking_app_demo/pages/forgot_password.dart';
-import 'package:booking_app_demo/pages/home_page.dart';
-import 'package:booking_app_demo/pages/register.dart';
 import 'package:flutter/material.dart';
-  final acc=TextEditingController();
 
-  final pass=TextEditingController();
-class Login extends StatefulWidget {
-
-
-  
-
-
-
-
+class Login extends StatelessWidget {
   const Login({super.key});
 
-  @override
-  State<Login> createState() => _LoginState();
-}
-
-class _LoginState extends State<Login> {
   
-
   @override
   Widget build(BuildContext context) {
     
@@ -57,7 +39,6 @@ class _LoginState extends State<Login> {
                         Container(
                           margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                           child: TextField(
-                            controller: acc,
                             decoration: InputDecoration(
                               // contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                               contentPadding: const EdgeInsets.all(16),
@@ -77,7 +58,6 @@ class _LoginState extends State<Login> {
                         Container(
                           margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                           child: TextField(
-                            controller: pass,
                             obscureText: true,
                             enableSuggestions: false,
                             autocorrect: false,
@@ -112,10 +92,7 @@ class _LoginState extends State<Login> {
                                 style: ButtonStyle(
                                   overlayColor: MaterialStateProperty.all(Colors.transparent),
                                 ),
-                                onPressed: () {
-                                  Navigator.of(context).push(_reg());
-                                                   
-                                }, 
+                                onPressed: () {}, 
                                 child: const Text('Register', style: TextStyle(color: Colors.black, fontSize: 16),),
                               ),
 
@@ -123,11 +100,7 @@ class _LoginState extends State<Login> {
                                 style: ButtonStyle(
                                   overlayColor: MaterialStateProperty.all(Colors.transparent),
                                 ),
-                                onPressed: () {
-
-                                  Navigator.of(context).push(_forgot());
-
-                                }, 
+                                onPressed: () {}, 
                                 child: const Text('Forgot password?', style: TextStyle(color: Colors.black, fontSize: 16),),
                               ),
                             ],
@@ -136,14 +109,7 @@ class _LoginState extends State<Login> {
                         
                         Center( 
                           child: ElevatedButton(
-                            onPressed: () {
-                              if(acc.text=="admin"&&pass.text=="123")
-                              {
-                                Navigator.of(context).push(_home());
-                              
-                              }
-
-                            },
+                            onPressed: () {},
                             style: ButtonStyle(
                               padding: MaterialStateProperty.all<EdgeInsets>(
                                 const EdgeInsets.fromLTRB(50, 14, 50, 14),
@@ -190,58 +156,5 @@ class _LoginState extends State<Login> {
       ),
     );
   }
-}
-
-
-Route _home() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const HomePage(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      const begin = Offset(0.0, 1.0);
-      const end = Offset.zero;
-      const curve = Curves.ease;
-
-      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-      return SlideTransition(
-        position: animation.drive(tween),
-        child: child,
-      );
-    },
-  );
-}
-Route _reg() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const Register(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      const begin = Offset(0.0, 1.0);
-      const end = Offset.zero;
-      const curve = Curves.ease;
-
-      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-      return SlideTransition(
-        position: animation.drive(tween),
-        child: child,
-      );
-    },
-  );
-}
-
-Route _forgot() {
-  return PageRouteBuilder(
-    pageBuilder: (context, animation, secondaryAnimation) => const ForgotPassword(),
-    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      const begin = Offset(0.0, 1.0);
-      const end = Offset.zero;
-      const curve = Curves.ease;
-
-      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-      return SlideTransition(
-        position: animation.drive(tween),
-        child: child,
-      );
-    },
-  );
+  
 }
