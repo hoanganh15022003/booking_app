@@ -1,30 +1,8 @@
 
-import 'package:booking_app_demo/pages/login.dart';
+import 'package:booking_app_demo/layout/navigation_menu.dart';
+import 'package:booking_app_demo/pages/booking.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-
-void main() => runApp(
-   const MaterialApp(
-    
-    localizationsDelegates: [
-    AppLocalizations.delegate,
-    GlobalMaterialLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-  ],
-  supportedLocales: [
-    //Locale('en'), // English
-    Locale('vi'), // Spanish
-  ],
-    title: "Travel Demo",
-    home: Login(),
-    debugShowCheckedModeBanner: false,
-  ),
-);
-
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -42,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   String? selectedLanguage = 'VN';
   String gettext="";
   int n=0;
-  static const List<String> txtHello=['Xin chào,Hoàng Anh','Hello, Hoanganh'];
+  static const List<String> txtHello=['Xin chào, Username','Hello, Username'];
   static const List<String> location=['Địa điểm','Location'];
   static const List<String> time=['Tháng 8','August'];
   static const List<String> guests=['Khách','Guests'];
@@ -147,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                               Icons.search,
                               color: Colors.black,
                             ), 
-                            label: Text(location[n], style:const TextStyle(color: Colors.black, fontSize: 16),),
+                            label: Text(AppLocalizations.of(context)!.location, style:const TextStyle(color: Colors.black, fontSize: 16),),
                             style: ButtonStyle(
                               overlayColor: MaterialStateProperty.all(Colors.transparent),
                             ),
@@ -180,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                               Icons.calendar_today_outlined,
                               color: Colors.black,
                             ), 
-                            label: Text(time[n], style:const TextStyle(color: Colors.black, fontSize: 16),),
+                            label: Text(AppLocalizations.of(context)!.date, style:const TextStyle(color: Colors.black, fontSize: 16),),
                             style: ButtonStyle(
                               overlayColor: MaterialStateProperty.all(Colors.transparent),
                             ),
@@ -204,7 +182,7 @@ class _HomePageState extends State<HomePage> {
                               Icons.group_add_outlined,
                               color: Colors.black,
                             ), 
-                            label:  Text(guests[n], style:const TextStyle(color: Colors.black, fontSize: 16),),
+                            label:  Text(AppLocalizations.of(context)!.guests, style:const TextStyle(color: Colors.black, fontSize: 16),),
                             style: ButtonStyle(
                               overlayColor: MaterialStateProperty.all(Colors.transparent),
                             ),
@@ -265,7 +243,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                           ),
-                          child:  Text(search[n], style:const TextStyle(fontSize: 16),)
+                          child:  Text(AppLocalizations.of(context)!.search, style:const TextStyle(fontSize: 16),)
                         )
                       ),
                     ),
@@ -297,15 +275,15 @@ class _HomePageState extends State<HomePage> {
                           Container(
                             margin: const EdgeInsets.fromLTRB(0, 12, 0, 8),
                             child: Text(
-                              details[n], 
+                              AppLocalizations.of(context)!.detail, 
                               style:const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
                           ),
 
                           Container(
                             margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-                            child: const Text(
-                              'Surrounded by rice fields, Villa Kayu Lama offers a peaceful retreat in Ubud. Guests can take a leisurely swim in the private...',
-                              style: TextStyle(fontSize: 16, ),
+                            child: Text(
+                              AppLocalizations.of(context)!.text,
+                              style:const TextStyle(fontSize: 16, ),
                             ),
                           ),
 
@@ -328,7 +306,7 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                 ),
-                                child: Text(goTo[n], style:const TextStyle(fontSize: 16),)
+                                child: Text(AppLocalizations.of(context)!.go_to, style:const TextStyle(fontSize: 16),)
                               )
                             ),
                           ),

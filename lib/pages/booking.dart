@@ -1,6 +1,9 @@
-import 'package:booking_app_demo/main.dart';
+import 'package:booking_app_demo/pages/home_page.dart';
 import 'package:booking_app_demo/pages/room_detail.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+
 int val=0;
 Route _createRoute1() {
   return PageRouteBuilder(
@@ -213,7 +216,7 @@ class _BookingPageState extends State<BookingPage> {
                               ),
                             ),
                           ),
-                          child: const Text('Hotel', style: TextStyle(fontSize: 16),),
+                          child: Text(AppLocalizations.of(context)!.hotel, style:const TextStyle(fontSize: 16),),
                         ),
 
                         ElevatedButton(
@@ -236,7 +239,7 @@ class _BookingPageState extends State<BookingPage> {
                               ),
                             ),
                           ),
-                          child: const Text('Food', style: TextStyle(fontSize: 16),),
+                          child: Text(AppLocalizations.of(context)!.food, style:const TextStyle(fontSize: 16),),
                         ),
 
                         ElevatedButton(
@@ -259,7 +262,7 @@ class _BookingPageState extends State<BookingPage> {
                               ),
                             ),
                           ),
-                          child: const Text('Activities', style: TextStyle(fontSize: 16),),
+                          child:Text(AppLocalizations.of(context)!.activities, style:const TextStyle(fontSize: 16),),
                         ),
 
                       ]
@@ -309,9 +312,9 @@ class _BookingPageState extends State<BookingPage> {
 
                     Container(
                       margin: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-                      child: const Text(
-                        'DETAILS', 
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                      child: Text(
+                        AppLocalizations.of(context)!.detail, 
+                        style:const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
                       ),
 
                     if (val==0) Container(
@@ -358,7 +361,7 @@ class _BookingPageState extends State<BookingPage> {
                               ),
                             ),
                           ),
-                          child: const Text('Continue', style: TextStyle(fontSize: 16),)
+                          child: Text(AppLocalizations.of(context)!.continues, style:const TextStyle(fontSize: 16),)
                         )
                       ),
                     ),

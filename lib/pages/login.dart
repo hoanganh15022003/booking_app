@@ -1,13 +1,30 @@
+import 'package:booking_app_demo/pages/forgot_password.dart';
+import 'package:booking_app_demo/pages/home_page.dart';
+import 'package:booking_app_demo/pages/register.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
+  final acc=TextEditingController();
+  final pass=TextEditingController();
 
   
+class Login extends StatefulWidget {
+  
+
+  const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  
+
   @override
   Widget build(BuildContext context) {
     
     return Scaffold (
+      
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
@@ -23,10 +40,10 @@ class Login extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Center(
+                   Center(
                     child: Text(
-                      'LOGIN', 
-                      style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                      AppLocalizations.of(context)!.login, 
+                      style:const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Container(
@@ -39,11 +56,12 @@ class Login extends StatelessWidget {
                         Container(
                           margin: const EdgeInsets.fromLTRB(0, 10, 0, 10),
                           child: TextField(
+                            controller: acc,
                             decoration: InputDecoration(
                               // contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                               contentPadding: const EdgeInsets.all(16),
-                              labelText: 'Username',
-                              hintText: 'Type your username',
+                              labelText: AppLocalizations.of(context)!.user,
+                              hintText: AppLocalizations.of(context)!.userreq,
                               labelStyle: const TextStyle(
                                 color: Colors.black,
                               ),
@@ -58,14 +76,15 @@ class Login extends StatelessWidget {
                         Container(
                           margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                           child: TextField(
+                            controller: pass,
                             obscureText: true,
                             enableSuggestions: false,
                             autocorrect: false,
                             decoration: InputDecoration(
                               // contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                               contentPadding: const EdgeInsets.all(16),
-                              labelText: 'Password',
-                              hintText: 'Type your password',
+                              labelText: AppLocalizations.of(context)!.pass,
+                              hintText: AppLocalizations.of(context)!.passreq,
                               labelStyle: const TextStyle(
                                 color: Colors.black,
                               ),
@@ -92,16 +111,23 @@ class Login extends StatelessWidget {
                                 style: ButtonStyle(
                                   overlayColor: MaterialStateProperty.all(Colors.transparent),
                                 ),
-                                onPressed: () {}, 
-                                child: const Text('Register', style: TextStyle(color: Colors.black, fontSize: 16),),
+                                onPressed: () {
+                                  Navigator.of(context).push(_reg());
+                                                   
+                                }, 
+                                child:  Text(AppLocalizations.of(context)!.reg, style:const TextStyle(color: Colors.black, fontSize: 16),),
                               ),
 
                               TextButton(
                                 style: ButtonStyle(
                                   overlayColor: MaterialStateProperty.all(Colors.transparent),
                                 ),
-                                onPressed: () {}, 
-                                child: const Text('Forgot password?', style: TextStyle(color: Colors.black, fontSize: 16),),
+                                onPressed: () {
+
+                                  Navigator.of(context).push(_forgot());
+
+                                }, 
+                                child: Text(AppLocalizations.of(context)!.forgotpass, style:const TextStyle(color: Colors.black, fontSize: 16),),
                               ),
                             ],
                           ),
@@ -109,7 +135,13 @@ class Login extends StatelessWidget {
                         
                         Center( 
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              if(acc.text=="admin"&&pass.text=="123")
+                              {
+                                Navigator.of(context).push(_home());
+                              }
+
+                            },
                             style: ButtonStyle(
                               padding: MaterialStateProperty.all<EdgeInsets>(
                                 const EdgeInsets.fromLTRB(50, 14, 50, 14),
@@ -122,7 +154,7 @@ class Login extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            child: const Text('Login', style: TextStyle(fontSize: 16),)
+                            child: Text(AppLocalizations.of(context)!.login, style:const TextStyle(fontSize: 16),)
                         )
                       ),
                       ],
@@ -134,11 +166,11 @@ class Login extends StatelessWidget {
           ),
 
           Positioned(
+            top: 400,
             right: 0,
             left: 0,
             bottom: 0,
             child: Container(
-              height: 430,
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(24),
@@ -156,5 +188,58 @@ class Login extends StatelessWidget {
       ),
     );
   }
-  
+}
+
+
+Route _home() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => const HomePage(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(0.0, 1.0);
+      const end = Offset.zero;
+      const curve = Curves.ease;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
+}
+Route _reg() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => const Register(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(0.0, 1.0);
+      const end = Offset.zero;
+      const curve = Curves.ease;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
+}
+
+Route _forgot() {
+  return PageRouteBuilder(
+    pageBuilder: (context, animation, secondaryAnimation) => const ForgotPassword(),
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      const begin = Offset(0.0, 1.0);
+      const end = Offset.zero;
+      const curve = Curves.ease;
+
+      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+      return SlideTransition(
+        position: animation.drive(tween),
+        child: child,
+      );
+    },
+  );
 }
