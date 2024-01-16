@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+
+
+
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -20,11 +25,11 @@ class NavigationMenu extends StatelessWidget {
         height: 60,
         indicatorColor: const Color.fromARGB(255, 195, 195, 195),
         surfaceTintColor: Colors.white,
-        destinations: const [
-          NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-          NavigationDestination(icon: Icon(Icons.search), label: 'Search'),
-          NavigationDestination(icon: Icon(Icons.location_on), label: 'Location'),
-          NavigationDestination(icon: Icon(Icons.person), label: 'User'),
+        destinations: [
+          NavigationDestination(icon: const Icon(Icons.home), label: AppLocalizations.of(context)!.home),
+          NavigationDestination(icon: const Icon(Icons.search), label: AppLocalizations.of(context)!.search),
+          NavigationDestination(icon: const Icon(Icons.location_on), label: AppLocalizations.of(context)!.location),
+          NavigationDestination(icon: const Icon(Icons.person), label: AppLocalizations.of(context)!.home_user),
         ],
       ),
     ) ;

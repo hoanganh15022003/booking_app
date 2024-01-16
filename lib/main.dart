@@ -1,18 +1,23 @@
-import 'package:booking_app_demo/layout/navigation_menu.dart';
-import 'package:booking_app_demo/pages/booking.dart';
-import 'package:booking_app_demo/pages/forgot_password.dart';
-import 'package:booking_app_demo/pages/home_page.dart';
+
 import 'package:booking_app_demo/pages/login.dart';
-import 'package:booking_app_demo/pages/new_password.dart';
-import 'package:booking_app_demo/pages/register.dart';
-import 'package:booking_app_demo/pages/room_detail.dart';
 import 'package:flutter/material.dart';
-
-
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 void main() => runApp(
    const MaterialApp(
+    
+    localizationsDelegates: [
+    AppLocalizations.delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+  ],
+  supportedLocales: [
+    //Locale('en'), // English
+    Locale('vi'), // Spanish
+  ],
     title: "Travel Demo",
     home: Login(),
     debugShowCheckedModeBanner: false,

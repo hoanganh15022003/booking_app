@@ -2,16 +2,14 @@ import 'package:booking_app_demo/pages/forgot_password.dart';
 import 'package:booking_app_demo/pages/home_page.dart';
 import 'package:booking_app_demo/pages/register.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
   final acc=TextEditingController();
-
   final pass=TextEditingController();
-class Login extends StatefulWidget {
-
 
   
-
-
-
+class Login extends StatefulWidget {
+  
 
   const Login({super.key});
 
@@ -26,6 +24,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     
     return Scaffold (
+      
       resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
@@ -41,10 +40,10 @@ class _LoginState extends State<Login> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Center(
+                   Center(
                     child: Text(
-                      'LOGIN', 
-                      style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                      AppLocalizations.of(context)!.login, 
+                      style:const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Container(
@@ -61,8 +60,8 @@ class _LoginState extends State<Login> {
                             decoration: InputDecoration(
                               // contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                               contentPadding: const EdgeInsets.all(16),
-                              labelText: 'Username',
-                              hintText: 'Type your username',
+                              labelText: AppLocalizations.of(context)!.user,
+                              hintText: AppLocalizations.of(context)!.userreq,
                               labelStyle: const TextStyle(
                                 color: Colors.black,
                               ),
@@ -84,8 +83,8 @@ class _LoginState extends State<Login> {
                             decoration: InputDecoration(
                               // contentPadding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                               contentPadding: const EdgeInsets.all(16),
-                              labelText: 'Password',
-                              hintText: 'Type your password',
+                              labelText: AppLocalizations.of(context)!.pass,
+                              hintText: AppLocalizations.of(context)!.passreq,
                               labelStyle: const TextStyle(
                                 color: Colors.black,
                               ),
@@ -116,7 +115,7 @@ class _LoginState extends State<Login> {
                                   Navigator.of(context).push(_reg());
                                                    
                                 }, 
-                                child: const Text('Register', style: TextStyle(color: Colors.black, fontSize: 16),),
+                                child:  Text(AppLocalizations.of(context)!.reg, style:const TextStyle(color: Colors.black, fontSize: 16),),
                               ),
 
                               TextButton(
@@ -128,7 +127,7 @@ class _LoginState extends State<Login> {
                                   Navigator.of(context).push(_forgot());
 
                                 }, 
-                                child: const Text('Forgot password?', style: TextStyle(color: Colors.black, fontSize: 16),),
+                                child: Text(AppLocalizations.of(context)!.forgotpass, style:const TextStyle(color: Colors.black, fontSize: 16),),
                               ),
                             ],
                           ),
@@ -140,7 +139,6 @@ class _LoginState extends State<Login> {
                               if(acc.text=="admin"&&pass.text=="123")
                               {
                                 Navigator.of(context).push(_home());
-                              
                               }
 
                             },
@@ -156,7 +154,7 @@ class _LoginState extends State<Login> {
                                 ),
                               ),
                             ),
-                            child: const Text('Login', style: TextStyle(fontSize: 16),)
+                            child: Text(AppLocalizations.of(context)!.login, style:const TextStyle(fontSize: 16),)
                         )
                       ),
                       ],
