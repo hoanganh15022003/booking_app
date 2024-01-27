@@ -106,8 +106,9 @@ class ForgotPassword extends StatelessWidget {
                       ),
                     ),
                     child: const Text('Continue', style: TextStyle(fontSize: 16),)
-                )
-              ),
+                  ),
+                ),
+
               ],
             ),
           )
